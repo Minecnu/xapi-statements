@@ -1,7 +1,5 @@
 import GetClientSignature from './getClient/Signature';
 
-interface Repo {
+export default interface Facade {
   readonly getClient: GetClientSignature;
 }
-
-export default Repo;

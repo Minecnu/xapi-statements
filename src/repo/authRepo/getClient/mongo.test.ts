@@ -5,7 +5,7 @@ import assertError from 'jscommons/dist/tests/utils/assertError';
 import { ObjectID } from 'mongodb';
 import config from '../../../config';
 import { MongoClient } from 'mongodb';
-import mongoAuthRepo from '../utils/mongoAuth/facade';
+import mongoFactory from '../utils/mongoAuth/factory';
 import createClientModel from '../../../tests/utils/createClientModel';
 import * as assert from 'assert';
 
@@ -21,8 +21,10 @@ describe(__filename, () => {
     dbName: config.mongo.dbName,
     url: config.mongo.url,
   });
-  const authConfig = { db };
-  const authRepo = mongoAuthRepo(authConfig);
+  const authRepo = mongoFactory({
+    dbName: config.mongo.dbName,
+    url: config.mongo.url,
+  });
 
   it('should return a client from the db', async () => {
     const testDocument = {

@@ -4,10 +4,10 @@ import NoModel from 'jscommons/dist/errors/NoModel';
 import ClientModel from '../../../models/ClientModel';
 import Signature, { Opts, Result } from './Signature';
 import Actor from '../../../models/Actor';
-import Config from '../utils/mongoAuth/Config';
+import FacadeConfig from '../utils/mongoAuth/FacadeConfig';
 import parseJson from '../../../utils/parseJson';
 
-export default (config: Config): Signature => {
+export default (config: FacadeConfig): Signature => {
   return async ({ authToken }) => {
     const strippedAuthToken = authToken.replace('Basic ', '');
     const decodedAuthToken = atob(strippedAuthToken);

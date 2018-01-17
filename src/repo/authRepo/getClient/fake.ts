@@ -12,9 +12,9 @@ import {
   TEST_VALID_SCOPE_CLIENT,
   TEST_VALID_SCOPE_TOKEN,
 } from '../../../utils/testValues';
-import Config from '../utils/fakeAuth/Config';
+import FacadeConfig from '../utils/fakeAuth/FacadeConfig';
 
-export default (_config: Config): Signature => {
+export default (_config: FacadeConfig): Signature => {
   return async ({ authToken }) => {
     switch (authToken) {
       case TEST_INVALID_SCOPE_TOKEN:

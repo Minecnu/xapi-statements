@@ -3,12 +3,12 @@ import fetch from 'node-fetch';
 import ClientModel from '../../../models/ClientModel';
 import Signature, { Opts, Result } from './Signature';
 import Actor from '../../../models/Actor';
-import Config from '../utils/fetchAuth/Config';
+import FacadeConfig from '../utils/fetchAuth/FacadeConfig';
 
 const OK_HTTP_CODE = 200;
 const NO_MODEL_HTTP_CODE = 404;
 
-export default (config: Config): Signature => {
+export default (config: FacadeConfig): Signature => {
   return async ({ authToken }) => {
     const json = await fetch(config.llClientInfoEndpoint, {
       headers: {

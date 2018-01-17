@@ -1,4 +1,4 @@
-import AuthFactoryConfig from './authRepo/Config';
+import AuthFactoryConfig from './authRepo/FactoryConfig';
 import EventsFactoryConfig from './eventsRepo/Config';
 import ModelsFactoryConfig from './modelsRepo/Config';
 import StorageFactoryConfig from './storageRepo/FactoryConfig';

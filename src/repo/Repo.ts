@@ -1,4 +1,4 @@
-import AuthFacade from './authRepo/Repo';
+import AuthFacade from './authRepo/Facade';
 import EventsFacade from './eventsRepo/Repo';
 import StorageFacade from './storageRepo/Facade';
 import ModelsFacade from './modelsRepo/Repo';
