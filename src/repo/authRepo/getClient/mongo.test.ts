@@ -1,5 +1,6 @@
 import * as btoa from 'btoa';
 import NoModel from 'jscommons/dist/errors/NoModel';
+import connectToDb from 'jscommons/dist/mongoRepo/utils/connectToDb';
 import assertError from 'jscommons/dist/tests/utils/assertError';
 import { ObjectID } from 'mongodb';
 import config from '../../../config';
@@ -16,7 +17,10 @@ const TEST_BASIC_SECRET = 'abc';
 const TEST_TOKEN = `Basic ${btoa(`${TEST_BASIC_KEY}:${TEST_BASIC_SECRET}`)}`;
 
 describe(__filename, () => {
-  const db = MongoClient.connect(config.mongo.url);
+  const db = connectToDb({
+    dbName: config.mongo.dbName,
+    url: config.mongo.url,
+  });
   const authConfig = { db };
   const authRepo = mongoAuthRepo(authConfig);
 

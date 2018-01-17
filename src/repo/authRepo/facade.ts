@@ -1,4 +1,4 @@
-import { MongoClient } from 'mongodb';
+import connectToDb from 'jscommons/dist/mongoRepo/utils/connectToDb';
 import fakeAuthRepo from './utils/fakeAuth/facade';
 import fetchAuthRepo from './utils/fetchAuth/facade';
 import mongoAuthRepo from './utils/mongoAuth/facade';
@@ -13,7 +13,10 @@ export default (config: Config): Repo => {
       return fetchAuthRepo(config.fetch);
     default: case 'mongo':
       return mongoAuthRepo({
-        db: MongoClient.connect(config.mongo.url),
+        db: connectToDb({
+          dbName: config.mongo.dbName,
+          url: config.mongo.url,
+        }),
       });
   }
 };

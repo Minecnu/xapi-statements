@@ -12,6 +12,7 @@ const repo: Repo = facade({
       llClientInfoEndpoint: config.llClientInfoEndpoint,
     },
     mongo: {
+      dbName: config.mongo.dbName,
       url: config.mongo.url,
     },
   },
@@ -31,6 +32,7 @@ const repo: Repo = facade({
       },
     },
     mongo: {
+      dbName: config.mongo.dbName,
       url: config.mongo.url,
     }
   },

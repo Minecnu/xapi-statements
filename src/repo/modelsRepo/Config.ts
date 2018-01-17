@@ -5,6 +5,7 @@ export default interface Config {
   readonly facade: string;
   readonly memory: MemoryConfig;
   readonly mongo: {
+    readonly dbName: string;
     readonly url: string;
   };
 }

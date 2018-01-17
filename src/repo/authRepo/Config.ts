@@ -6,6 +6,7 @@ export default interface Config {
   readonly fake: FakeConfig;
   readonly fetch: FetchConfig;
   readonly mongo: {
+    readonly dbName: string;
     readonly url: string;
   };
 }

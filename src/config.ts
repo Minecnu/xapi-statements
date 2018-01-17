@@ -7,9 +7,12 @@ import * as os from 'os';
 import getBooleanOption from 'jscommons/dist/config/getBooleanOption';
 import getNumberOption from 'jscommons/dist/config/getNumberOption';
 import getStringOption from 'jscommons/dist/config/getStringOption';
+import getDbFromUrl from 'jscommons/dist/mongoRepo/utils/getDbFromUrl';
+
 const storageDir = `${process.cwd()}/storage`;
 const googleKeyFileName = `${process.cwd()}/google.keyfile.json`;
 const expressPort = getNumberOption(process.env.EXPRESS_PORT, 80);
+const mongoUrl = getStringOption(process.env.MONGO_URL, 'mongodb://localhost:27017/xapistatements');
 
 export default {
   llClientInfoEndpoint: getStringOption(
@@ -95,6 +98,7 @@ export default {
     }
   },
   mongo: {
-    url: getStringOption(process.env.MONGO_URL, 'mongodb://127.0.0.1:27017/xapiserver')
+    dbName: getStringOption(process.env.MONGO_DB, getDbFromUrl(mongoUrl)),
+    url: mongoUrl,
   },
 };
