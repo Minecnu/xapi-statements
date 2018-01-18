@@ -1,8 +1,6 @@
 import * as redis from 'redis';
 
-interface Config {
+export default interface FacadeConfig {
   readonly client: redis.RedisClient;
   readonly prefix: string;
 }
-
-export default Config;

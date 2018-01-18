@@ -1,8 +1,8 @@
-import Config from '../utils/redisEvents/Config';
+import FacadeConfig from '../utils/redisEvents/FacadeConfig';
 
 const EVENT_NAME = 'statement.new';
 
-export default (config: Config) => {
+export default (config: FacadeConfig) => {
   const del = (key: string) => {
     return new Promise((resolve) => {
       config.client.del(key, () => {

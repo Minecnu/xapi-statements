@@ -1,10 +1,10 @@
 import Signature, { Opts } from './Signature';
-import Config from '../utils/redisEvents/Config';
+import FacadeConfig from '../utils/redisEvents/FacadeConfig';
 
 const EVENT_NAME = 'statement.new';
 const CHANNEL_NAME = 'statement.notify';
 
-export default (config: Config): Signature => {
+export default (config: FacadeConfig): Signature => {
   const rpush = (key: string, ...args: string[]) => {
     return new Promise((resolve) => {
       config.client.rpush(key, ...args, () => {
