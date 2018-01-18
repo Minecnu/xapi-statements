@@ -6,6 +6,6 @@ export interface State {
   statements: StoredStatementModel[];
 }
 
-export default interface Config {
+export default interface FacadeConfig {
   state: State;
 }

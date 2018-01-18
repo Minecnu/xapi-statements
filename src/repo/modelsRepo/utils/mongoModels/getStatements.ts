@@ -1,10 +1,10 @@
 import ClientModel from '../../../../models/ClientModel';
 import matchesClientOption from './matchesClientOption';
 import { STATEMENTS_COLLECTION_NAME } from './constants';
-import Config from './Config';
+import FacadeConfig from './FacadeConfig';
 
 export interface Options {
-  config: Config;
+  config: FacadeConfig;
   query: Object;
   project: Object;
   client: ClientModel;

@@ -1,6 +1,6 @@
 import authFactory from './authRepo/factory';
 import eventsFactory from './eventsRepo/factory';
-import modelsFactory from './modelsRepo/facade';
+import modelsFactory from './modelsRepo/factory';
 import storageFactory from './storageRepo/factory';
 import Repo from './Repo';
 import FactoryConfig from './FactoryConfig';

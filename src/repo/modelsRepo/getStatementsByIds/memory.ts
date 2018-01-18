@@ -2,9 +2,9 @@ import { includes } from 'lodash';
 import Statement from '../../../models/Statement';
 import Signature, { Opts } from './Signature';
 import matchesClientOption from '../utils/memoryModels/matchesClientOption';
-import Config from '../utils/memoryModels/Config';
+import FacadeConfig from '../utils/memoryModels/FacadeConfig';
 
-export default (config: Config): Signature => {
+export default (config: FacadeConfig): Signature => {
   return async ({ client, ids }) => {
     const filteredModels = config.state.statements.filter((model) => {
       return (

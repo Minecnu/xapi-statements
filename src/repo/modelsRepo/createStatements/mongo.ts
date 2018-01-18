@@ -2,10 +2,10 @@ import { ObjectID } from 'mongodb';
 import { encodeDotsInStatement } from '../utils/mongoModels/replaceDotsInStatement';
 import UnstoredStatementModel from '../../../models/UnstoredStatementModel';
 import Signature, { Opts } from './Signature';
-import Config from '../utils/mongoModels/Config';
+import FacadeConfig from '../utils/mongoModels/FacadeConfig';
 import { STATEMENTS_COLLECTION_NAME } from '../utils/mongoModels/constants';
 
-export default (config: Config): Signature => {
+export default (config: FacadeConfig): Signature => {
   return async (opts) => {
     if (opts.models.length === 0) {
       return [];

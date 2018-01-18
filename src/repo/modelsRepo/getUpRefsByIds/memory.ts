@@ -3,7 +3,7 @@ import ChangedStatementRef from '../../../errors/ChangedStatementRef';
 import StoredStatementModel from '../../../models/StoredStatementModel';
 import UpRef from '../../../models/UpRef';
 import matchesClientOption from '../utils/memoryModels/matchesClientOption';
-import Config from '../utils/memoryModels/Config';
+import FacadeConfig from '../utils/memoryModels/FacadeConfig';
 import Signature, { Opts } from './Signature';
 
 const getTargetId = (model: StoredStatementModel) => {
@@ -15,7 +15,7 @@ const getTargetId = (model: StoredStatementModel) => {
   throw new ChangedStatementRef(model.statement.id);
 };
 
-export default (config: Config): Signature => {
+export default (config: FacadeConfig): Signature => {
   return async ({ client, targetIds }) => {
     const filteredModels = config.state.statements.filter((model) => {
       return (

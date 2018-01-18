@@ -1,6 +1,6 @@
 import { mapKeys, Dictionary } from 'lodash';
 import { ObjectID } from 'mongodb';
-import Config from '../utils/mongoModels/Config';
+import FacadeConfig from '../utils/mongoModels/FacadeConfig';
 import matchesFullActivity from '../utils/mongoModels/matchesFullActivity';
 import { replaceDotsInExtensions } from '../utils/mongoModels/replaceDotsInStatement';
 import { FULL_ACTIVITIES_COLLECTION_NAME } from '../utils/mongoModels/constants';
@@ -13,7 +13,7 @@ const getPatchUpdate = <T>(patch: Dictionary<T>, parentKeys: string[]) => {
   });
 };
 
-export default (config: Config): Signature => {
+export default (config: FacadeConfig): Signature => {
   return async ({ client, updates }) => {
     const collection = (await config.db).collection(FULL_ACTIVITIES_COLLECTION_NAME);
     const lrsId = new ObjectID(client.lrs_id);

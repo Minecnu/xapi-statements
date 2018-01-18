@@ -2,7 +2,7 @@ import UpRef from '../../../models/UpRef';
 import Signature, { Opts } from './Signature';
 import matchesClientOption from '../utils/mongoModels/matchesClientOption';
 import { STATEMENTS_COLLECTION_NAME } from '../utils/mongoModels/constants';
-import Config from '../utils/mongoModels/Config';
+import FacadeConfig from '../utils/mongoModels/FacadeConfig';
 
 interface Result {
   readonly statement: {
@@ -13,7 +13,7 @@ interface Result {
   };
 }
 
-export default (config: Config): Signature => {
+export default (config: FacadeConfig): Signature => {
   return async ({ client, targetIds }) => {
     const collection = (await config.db).collection(STATEMENTS_COLLECTION_NAME);
 

@@ -1,9 +1,9 @@
 import { union } from 'lodash';
 import matchesClientOption from '../utils/memoryModels/matchesClientOption';
-import Config from '../utils/memoryModels/Config';
+import FacadeConfig from '../utils/memoryModels/FacadeConfig';
 import Signature, { Opts } from './Signature';
 
-export default (config: Config): Signature => {
+export default (config: FacadeConfig): Signature => {
   return async ({
     id,
     client,

@@ -1,9 +1,9 @@
 import matchesClientOption from '../utils/mongoModels/matchesClientOption';
 import { STATEMENTS_COLLECTION_NAME } from '../utils/mongoModels/constants';
-import Config from '../utils/mongoModels/Config';
+import FacadeConfig from '../utils/mongoModels/FacadeConfig';
 import Signature, { Opts } from './Signature';
 
-export default (config: Config): Signature => {
+export default (config: FacadeConfig): Signature => {
   return async ({ client, ids }) => {
     if (ids.length === 0) return;
 

@@ -1,8 +1,8 @@
 import Signature, { Opts, Result } from './Signature';
-import Config from '../utils/memoryModels/Config';
+import FacadeConfig from '../utils/memoryModels/FacadeConfig';
 import matchesFullActivity from '../utils/memoryModels/matchesFullActivity';
 
-export default (config: Config): Signature => {
+export default (config: FacadeConfig): Signature => {
   return async ({ activityId, client }) => {
     const lrsId = client.lrs_id;
     const organisationId = client.organisation;

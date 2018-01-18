@@ -1,10 +1,10 @@
 import NoModel from 'jscommons/dist/errors/NoModel';
 import ChangedStatementRef from '../../../errors/ChangedStatementRef';
 import matchesClientOption from '../utils/memoryModels/matchesClientOption';
-import Config from '../utils/memoryModels/Config';
+import FacadeConfig from '../utils/memoryModels/FacadeConfig';
 import Signature, { Opts } from './Signature';
 
-export default (config: Config): Signature => {
+export default (config: FacadeConfig): Signature => {
   return async ({ client, id }) => {
     const filteredModels = config.state.statements.filter((model) => {
       return (

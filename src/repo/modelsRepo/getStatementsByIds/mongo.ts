@@ -2,14 +2,14 @@ import Statement from '../../../models/Statement';
 import matchesClientOption from '../utils/mongoModels/matchesClientOption';
 import { decodeDotsInStatement } from '../utils/mongoModels/replaceDotsInStatement';
 import { STATEMENTS_COLLECTION_NAME } from '../utils/mongoModels/constants';
-import Config from '../utils/mongoModels/Config';
+import FacadeConfig from '../utils/mongoModels/FacadeConfig';
 import Signature, { Opts } from './Signature';
 
 interface Result {
   statement: Statement;
 }
 
-export default (config: Config): Signature => {
+export default (config: FacadeConfig): Signature => {
   return async ({ client, ids }) => {
     const collection = (await config.db).collection(STATEMENTS_COLLECTION_NAME);
 

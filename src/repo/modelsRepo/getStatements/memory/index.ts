@@ -1,7 +1,7 @@
 import StoredStatementModel from '../../../../models/StoredStatementModel';
 import Signature, { Opts } from '../Signature';
 import matchesClientOption from '../../utils/memoryModels/matchesClientOption';
-import Config from '../../utils/memoryModels/Config';
+import FacadeConfig from '../../utils/memoryModels/FacadeConfig';
 import matchesAgentOption from './matchesAgentOption';
 import matchesCursorOption from './matchesCursorOption';
 import matchesVerbOption from './matchesVerbOption';
@@ -53,7 +53,7 @@ const limitModels = (
   return models.slice(skip, limit + skip);
 };
 
-export default (config: Config): Signature => {
+export default (config: FacadeConfig): Signature => {
   return async (opts) => {
     const filteredItems = filterModels(config.state.statements, opts);
     const sortedItems = sortModels(filteredItems, opts.ascending);

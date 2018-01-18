@@ -1,10 +1,10 @@
 import Statement from '../../../../models/Statement';
 import ClientModel from '../../../../models/ClientModel';
 import matchesClientOption from './matchesClientOption';
-import Config from './Config';
+import FacadeConfig from './FacadeConfig';
 
 export interface Options<Result> {
-  config: Config;
+  config: FacadeConfig;
   query: (model: Statement) => boolean;
   project: (model: Statement) => Result;
   client: ClientModel;

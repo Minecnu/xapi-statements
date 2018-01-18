@@ -2,11 +2,11 @@ import NoModel from 'jscommons/dist/errors/NoModel';
 import StoredStatementModel from '../../../models/StoredStatementModel';
 import matchesClientOption from '../utils/mongoModels/matchesClientOption';
 import { decodeDotsInStatement } from '../utils/mongoModels/replaceDotsInStatement';
-import Config from '../utils/mongoModels/Config';
+import FacadeConfig from '../utils/mongoModels/FacadeConfig';
 import { STATEMENTS_COLLECTION_NAME } from '../utils/mongoModels/constants';
 import Signature, { Opts } from './Signature';
 
-export default (config: Config): Signature => {
+export default (config: FacadeConfig): Signature => {
   return async ({ client, id, voided }) => {
     const collection = (await config.db).collection(STATEMENTS_COLLECTION_NAME);
     const query = {
